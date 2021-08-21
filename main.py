@@ -1,5 +1,7 @@
 import cv2
 from tracker import *
+import time
+import os
 
 def rescale_frame(frame, percent=75):
     width = int(frame.shape[1] * percent/ 100)
@@ -8,6 +10,11 @@ def rescale_frame(frame, percent=75):
     return cv2.resize(frame, dim, interpolation =cv2.INTER_AREA)
 
 def main():
+    # clear tracked objects from previous run
+    if(os.path.exists("objects.csv")):
+        os.remove("objects.csv")
+
+
     # Create tracker object
     tracker = EuclideanDistTracker()
     # https://cwwp2.dot.ca.gov/vm/streamlist.htm
@@ -48,9 +55,9 @@ def main():
 
         cv2.putText(frame, 'Detection Region', (50, 290), cv2.FONT_HERSHEY_PLAIN, 1, (0, 255, 0), 1)    
         cv2.rectangle(frame, (0,300), (1152,420), (0, 255, 0), 1)
-        cv2.imshow("Mask", mask)
-        cv2.imshow("roi", roi)
-        cv2.imshow("Frame", frame)
+        cv2.imshow("Masked Region", mask)
+        cv2.imshow("Detection Region", roi)
+        # cv2.imshow("Frame", frame)
 
         key = cv2.waitKey(30)
         if key == 27:

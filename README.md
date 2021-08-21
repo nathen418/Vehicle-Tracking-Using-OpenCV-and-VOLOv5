@@ -20,6 +20,8 @@
 ## End goal of the project:
 - To be a drop in solution to detect and track the passage of vehicles on a highway or other road with accuracy such that the operator can get useful data about traffic flow for use in other applications. 
 
+# objects.csv formatting
+- Object ID, X position, Y position, Unix timestamp
 
 
 ## Credits:

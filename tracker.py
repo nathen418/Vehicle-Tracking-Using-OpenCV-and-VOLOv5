@@ -2,6 +2,7 @@
 # Credit here
 
 import math
+import time
 
 
 class EuclideanDistTracker:
@@ -30,9 +31,12 @@ class EuclideanDistTracker:
 
                 if dist < 5:
                     self.center_points[id] = (cx, cy)
-                    print(self.center_points)
                     objects_bbs_ids.append([x, y, w, h, id])
                     same_object_detected = True
+                    print(f'Object: {id} Center Point: {self.center_points[id]}, Unix Timestamp: {time.time()}')
+                    f = open("objects.csv", "a")
+                    f.write(f'{id},{self.center_points[id][0]},{self.center_points[id][1]},{time.time()}\n')
+                    f.close()
                     break
 
             # New object is detected we assign the ID to that object
