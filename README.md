@@ -30,10 +30,10 @@
 
 ## Credits:
 - Nate Goldsborough: [Personal Website](https://nathen418.com)
-- Garg Kunal : [Inspiration Repository](https://github.com/garg-kunal/object_tracker)
+- Kunal Garg : [Inspiration Repository](https://github.com/garg-kunal/object_tracker)
 
 ## Join our discord server:
 https://dsc.gg/antaresnetwork
 
 ## License
-- Yet to be Licensed
+- GNU General Public License v3.0
