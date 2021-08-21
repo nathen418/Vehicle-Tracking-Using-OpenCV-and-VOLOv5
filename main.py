@@ -1,7 +1,5 @@
 import cv2
 from tracker import *
-import os
-import vlc
 
 def rescale_frame(frame, percent=75):
     width = int(frame.shape[1] * percent/ 100)
@@ -17,21 +15,14 @@ def main():
 
 
     # Object detection from Stable camera
-    object_detector = cv2.createBackgroundSubtractorMOG2(history=100, varThreshold=40, detectShadows=True)
-    while True: # while(cap.isOpened()):
+    object_detector = cv2.createBackgroundSubtractorKNN(history=50000, dist2Threshold=90, detectShadows=False)
+    while True:
         ret, frame = cap.read()
         frame = rescale_frame(frame, percent=45)
         height, width, _ = frame.shape
-        print (height, width, _)
 
         # Extract Region of interest
-        #  roi = frame[340: 720,500: 800]
-
-        # Extract Region of interest
-        # roi = frame[200: 400,0: 220]
-
-        # Extract Region of interest
-        roi = frame[0: 864,0: 1152]
+        roi = frame[300: 420,0: 1152]
     
 
         # 1. Object Detection
@@ -44,10 +35,8 @@ def main():
             area = cv2.contourArea(cnt)
             if area > 400:
                 # Draw contours if needed
-                cv2.drawContours(roi, [cnt], -1, (0, 0, 255), 2)
+                cv2.drawContours(roi, [cnt], -1, (0, 0, 255), )
                 x, y, w, h = cv2.boundingRect(cnt)
-
-
                 detections.append([x, y, w, h])
 
         # 2. Object Tracking
@@ -57,9 +46,11 @@ def main():
             cv2.putText(roi, "obj: " + str(id), (x, y - 15), cv2.FONT_HERSHEY_PLAIN, 2, (255, 0, 0), 2)
             cv2.rectangle(roi, (x, y), (x + w, y + h), (0, 255, 0), 3)
 
+        cv2.putText(frame, 'Detection Region', (50, 290), cv2.FONT_HERSHEY_PLAIN, 1, (0, 255, 0), 1)    
+        cv2.rectangle(frame, (0,300), (1152,420), (0, 255, 0), 1)
+        cv2.imshow("Mask", mask)
         cv2.imshow("roi", roi)
         cv2.imshow("Frame", frame)
-        cv2.imshow("Mask", mask)
 
         key = cv2.waitKey(30)
         if key == 27:
@@ -69,4 +60,5 @@ def main():
     cv2.destroyAllWindows()
 
 
-main()
+if __name__ == "__main__":
+    main()
