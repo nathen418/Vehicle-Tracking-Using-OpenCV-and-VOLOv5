@@ -1,6 +1,5 @@
 import cv2
 from tracker import *
-import time
 import os
 
 def rescale_frame(frame, percent=75):
