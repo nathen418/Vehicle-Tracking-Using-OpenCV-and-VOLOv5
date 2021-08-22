@@ -21,7 +21,7 @@ def main():
 
 
     # Object detection from Stable camera
-    object_detector = cv2.createBackgroundSubtractorKNN(history=50000, dist2Threshold=90, detectShadows=False)
+    object_detector = cv2.createBackgroundSubtractorKNN(history=1000, dist2Threshold=800, detectShadows=False)
     while True:
         ret, frame = cap.read()
         frame = rescale_frame(frame, percent=45)
@@ -56,7 +56,7 @@ def main():
         cv2.rectangle(frame, (0,300), (1152,420), (0, 255, 0), 1)
         cv2.imshow("Masked Region", mask)
         cv2.imshow("Detection Region", roi)
-        # cv2.imshow("Frame", frame)
+        cv2.imshow("Frame", frame)
 
         key = cv2.waitKey(30)
         if key == 27:
