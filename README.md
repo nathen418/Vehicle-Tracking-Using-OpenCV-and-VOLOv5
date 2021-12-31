@@ -1,7 +1,7 @@
 [![Discord](https://discordapp.com/api/guilds/649703068799336454/widget.png)](https://discordapp.com/invite/KKYw763)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Antares-Network/Vehicle-Tracking-Using-OpenCV-and-VOLOv5?style=social)
-![](https://img.shields.io/github/repo-size/Antares-Network/Vehicle-Tracking-Using-OpenCV-and-VOLOv5?color=Green&style=flat-square)
-![](https://img.shields.io/tokei/lines/github/Antares-Network/Vehicle-Tracking-Using-OpenCV-and-VOLOv5?style=flat-square)  
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/nathen418/Vehicle-Tracking-Using-OpenCV-and-VOLOv5?style=social)
+![](https://img.shields.io/github/repo-size/nathen418/Vehicle-Tracking-Using-OpenCV-and-VOLOv5?color=Green&style=flat-square)
+![](https://img.shields.io/tokei/lines/github/nathen418/Vehicle-Tracking-Using-OpenCV-and-VOLOv5?style=flat-square)  
 ![](https://cdn.discordapp.com/icons/649703068799336454/1a7ef8f706cd60d62547d2c7dc08d6f0.png) 
 
 # Vehicle Tracking Using OpenCV and VOLOv5 (VTUOV)
@@ -20,7 +20,7 @@ Beta 0.1 during the day after some tuning
 
 
 ## How to run yourself:
-- Clone the repository: `git clone https://github.com/Antares-Network/Vehicle-Tracking-Using-OpenCV-and-VOLOv5`
+- Clone the repository: `git clone https://github.com/nathen418/Vehicle-Tracking-Using-OpenCV-and-VOLOv5`
 - Install the dependencies: `pip install -r requirements.txt`
 - Run the program: `python main.py`
 - Profit!
